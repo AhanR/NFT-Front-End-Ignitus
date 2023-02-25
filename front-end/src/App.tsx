@@ -1,11 +1,12 @@
 import { useState } from 'react'
 import './App.css'
-import Product from './components/product'
+import Home from './pages/home'
 
 function App() {
   return (
     <div className="">
-      <Product/>
+      {/* add in the pages router here */}
+      <Home/>
     </div>
   )
 }
