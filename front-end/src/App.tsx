@@ -1,10 +1,11 @@
 import { useState } from 'react'
 import './App.css'
+import Product from './components/product'
 
 function App() {
   return (
-    <div className="text-3xl font-bold underline">
-      Hello world, this is my first vite project
+    <div className="">
+      <Product/>
     </div>
   )
 }
