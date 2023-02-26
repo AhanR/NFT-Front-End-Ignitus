@@ -1,17 +1,24 @@
 import { createSlice } from '@reduxjs/toolkit'
+import type { PayloadAction } from '@reduxjs/toolkit'
 
 const cart = createSlice({
     name : "cart",
     initialState : [],
     reducers: {
-        addToCart(state, action){
-            state = [...state, action.payload];
+        addToCart(state, action : PayloadAction<String>){
+            let found = false;
+            for(let i = 0; i < state.length; i++) {
+                if(state[i] == action.payload) found=true;
+            }
+            if(!found){
+                return [...state,action.payload];
+            }
         },
         removeFromCart(state, action) {
-            state = state.filter(x=>x!=action.payload);
+            return state.filter(x=>x!=action.payload);
         },
-        clearCart(state, action){
-            state = [];
+        clearCart(state){
+            return [];
         }
     }
 });

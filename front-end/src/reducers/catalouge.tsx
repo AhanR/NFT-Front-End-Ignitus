@@ -13,14 +13,54 @@ const catalouge = createSlice({
             id: "2",
             url: "https://source.unsplash.com/random",
             price: 12,
-            desc: "An amazing product"
-        }
+            desc: "Cool new product"
+        },
+        {
+            id: "3",
+            url: "https://source.unsplash.com/random",
+            price: 34,
+            desc: "Cool new Item"
+        },
+        {
+            id: "4",
+            url: "https://source.unsplash.com/random",
+            price: 1000,
+            desc: "Thing 1"
+        },
+        {
+            id: "5",
+            url: "https://source.unsplash.com/random",
+            price: 1005,
+            desc: "Thing 2"
+        },
+        {
+            id: "6",
+            url: "https://source.unsplash.com/random",
+            price: 88923,
+            desc: "Content bag 2"
+        },
+        {
+            id: "7",
+            url: "https://source.unsplash.com/random",
+            price: 0,
+            desc: "Content bag 5"
+        },
+        {
+            id: "8",
+            url: "https://source.unsplash.com/random",
+            price: 1462,
+            desc: "Content bag 1"
+        },
+        {
+            id: "9",
+            url: "https://source.unsplash.com/random",
+            price: 14,
+            desc: "Toolbox"
+        },
     ],
     reducers: {
         removeFromCatalouge(state, action){
-            for(let x in action.payload) {
-                state = state.filter(y=>y.id!=x);
-            }
+            return state.filter(prod=>!action.payload.includes(prod.id))
         }
     }
 })

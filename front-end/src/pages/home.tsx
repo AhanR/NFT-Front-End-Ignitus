@@ -2,11 +2,12 @@ import React, { useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import Product from '../components/product';
 import Cart from '../components/cart';
+import { Link } from 'react-router-dom';
 
 export default function Home() {
 
     const catalouge = useSelector(store => store.catalouge);
-    const [cartOpen, setCartOpen] = useState(false);
+    const [cartOpen, setCartOpen] = useState(true);
 
   return (
     <div>
@@ -21,24 +22,48 @@ export default function Home() {
         >
             <h2
                 style={{
-                    margin: 0
+                    margin: 0,
                 }}
             >Online Cart</h2>
-            <button
+            <div
                 style={{
-                    paddingLeft: 20,
-                    paddingRight: 20,
-                    borderRadius: 20,
-                    background: "none",
-                    border: "2px solid white",
-                    color: 'white',
-                    fontWeight: 'bold',
-                    cursor: 'pointer'
+                    display: 'flex',
+                    gap: 10
                 }}
-                onClick={()=>setCartOpen(s=>!s)}
             >
-                Cart
-            </button>
+                <button
+                    style={{
+                        paddingLeft: 20,
+                        paddingRight: 20,
+                        borderRadius: 20,
+                        background: "none",
+                        border: "2px solid white",
+                        color: 'white',
+                        fontWeight: 'bold',
+                        cursor: 'pointer'
+                    }}
+                    onClick={()=>setCartOpen(s=>!s)}
+                >
+                    Cart
+                </button>
+                <Link
+                    style={{
+                        borderRadius: 20,
+                        color: 'white',
+                        border: "none",
+                        background: "#3d85c1",
+                        textDecoration: "none",
+                        textAlign: 'center',
+                        paddingLeft: 20,
+                        paddingRight: 20,
+                        display: 'flex',
+                        alignItems: 'center'
+                    }}
+                    to={"/checkout"}
+                >
+                    Check out
+                </Link>
+            </div>
         </nav>
         <div 
             className=' w-screen ' 
@@ -46,6 +71,7 @@ export default function Home() {
                 boxSizing: "border-box",
                 width: "100%",
                 display: "flex",
+                flexWrap: 'wrap',
                 gap: "30px",
                 padding: 10
             }}

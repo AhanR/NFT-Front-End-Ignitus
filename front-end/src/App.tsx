@@ -1,12 +1,24 @@
-import { useState } from 'react'
 import './App.css'
+import Checkout from './pages/checkout'
 import Home from './pages/home'
+import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 
 function App() {
+
+  const routes = createBrowserRouter([
+    {
+      path: "/",
+      element: <Home/>
+    },
+    {
+      path: "/checkout",
+      element: <Checkout/>
+    }
+  ])
+
   return (
     <div className="">
-      {/* add in the pages router here */}
-      <Home/>
+      <RouterProvider router={routes}  />
     </div>
   )
 }

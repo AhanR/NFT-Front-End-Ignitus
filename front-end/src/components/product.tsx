@@ -1,6 +1,11 @@
 import React from 'react'
+import { useDispatch } from 'react-redux'
+import { addToCart } from '../reducers/cart';
 
 export default function Product(props) {
+
+  const dispatcher = useDispatch();
+
   return (
     <div 
       className=' w-[200px] h-[500px] ' 
@@ -42,8 +47,9 @@ export default function Product(props) {
           border: "none",
           width: 170,
           cursor: "pointer",
-          fontWeight: "bold"
+          fontWeight: "bold",
         }}
+        onClick={()=>dispatcher(addToCart(props.details.id))}
       >Buy ₹{props.details.price}</button>
     </div>
   )

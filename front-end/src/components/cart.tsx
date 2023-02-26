@@ -1,6 +1,7 @@
 import React from 'react'
-import { useSelector } from 'react-redux'
+import { useSelector,useDispatch } from 'react-redux'
 import CartElement from './cartElement'
+import { Link } from 'react-router-dom'
 
 export default function Cart(props) {
 
@@ -43,11 +44,40 @@ export default function Cart(props) {
             background: 'transparent',
             border: "2px white solid",
             fontWeight: "bold",
+            cursor: 'pointer',
           }}
           onClick={()=>props.opener(s=>!s)}
         >close</button>
       </span>
-      {cart.map(prod=><CartElement detail={prod} />)}
+      <div
+        style={{
+          position: 'fixed',
+          bottom: 0,
+          right: 0,
+          padding: 10,
+          display: 'flex',
+          justifyContent: 'space-between',
+          width: '30%',
+        }}
+      >
+        <Link
+          style={{
+            borderRadius: 20,
+            padding: 15,
+            color: 'white',
+            border: "none",
+            background: "#3d85c1",
+            fontWeight: "bold",
+            width: "100%",
+            textDecoration: "none",
+            textAlign: 'center',
+          }}
+          to={"/checkout"}
+        >
+          Check out
+        </Link>
+      </div>
+      {cart.map(prod=><CartElement detail={prod} key={prod} />)}
     </div>
   )
 }

@@ -7,9 +7,9 @@ import { Provider } from 'react-redux'
 import cart from './reducers/cart'
 import catalouge from './reducers/catalouge'
 
-let store = configureStore({
+const store = configureStore({
   reducer : {
-    cart : cart,
+    cart: cart,
     catalouge: catalouge
   }
 });
